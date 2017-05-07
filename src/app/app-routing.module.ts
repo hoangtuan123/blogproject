@@ -6,6 +6,7 @@ import { HeroesComponent }      from './heroes.component';
 import { ProdcutDetailComponent }  from './product/product-detail.component';
 import { LoginComponent }  from './login/login.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: 'detail/:id', component: ProdcutDetailComponent, canActivate: [AuthGuard]  },
   { path: 'heroes',     component: HeroesComponent },
   { path: 'login',     component: LoginComponent },
+  { path: 'article',     component: ArticleComponent },
+  
 ];
 
 @NgModule({

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Article } from '../models/article';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-article',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-
-  constructor() { }
+  @Input () article:Article ={
+    articleName: '',
+    articleId: '',
+    articlePost: '',
+    articleType: ''
+  };
+  constructor(private articleService:ArticleService) { }
 
   ngOnInit() {
+   
   }
-
+  onClickSubmit():void{
+    this.articleService.addArticle(this.article).subscribe(
+      function(data){
+        console.log('success');
+        console.log(data);
+      },
+      function(data){
+        console.log('error');
+        console.log(data);
+      }
+    );
+  }
 }

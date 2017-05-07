@@ -21,6 +21,7 @@ import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { Location } from '@angular/common'
 import { AuthGuard } from './_guards/auth.guard';
 import { ArticleComponent } from './article/article.component';
+import { ArticleService } from './services/article.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ArticleComponent } from './article/article.component';
     AppRoutingModule,
     AlertModule.forRoot()
   ],
-  providers: [HeroService,LogonService,Location, ProductService,AuthGuard],
+  providers: [HeroService,LogonService,Location, ProductService,AuthGuard, ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
